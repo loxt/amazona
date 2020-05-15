@@ -11,7 +11,7 @@ function HomeScreen() {
 
   useEffect(() => {
     dispatch(listProducts);
-  }, []);
+  }, [dispatch]);
 
   return loading || error ? (
     <div>Loading...</div>
