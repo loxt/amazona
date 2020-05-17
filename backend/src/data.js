@@ -9,6 +9,7 @@ const data = {
       brand: 'Nike',
       rating: 4.5,
       numReviews: 10,
+      countInStock: 0
     },
     {
       id: '2',
@@ -19,6 +20,7 @@ const data = {
       brand: 'Nike',
       rating: 4.5,
       numReviews: 6,
+      countInStock: 4
     },
     {
       id: '3',
@@ -29,6 +31,7 @@ const data = {
       brand: 'Nike',
       rating: 4.5,
       numReviews: 10,
+      countInStock: 5
     },
     {
       id: '4',
@@ -39,6 +42,7 @@ const data = {
       brand: 'Nike',
       rating: 4.5,
       numReviews: 10,
+      countInStock: 15
     },
     {
       id: '5',
@@ -49,6 +53,7 @@ const data = {
       brand: 'Nike',
       rating: 4.5,
       numReviews: 10,
+      countInStock: 131
     },
     {
       id: '6',
@@ -59,6 +64,7 @@ const data = {
       brand: 'Nike',
       rating: 4.5,
       numReviews: 10,
+      countInStock: 11
     },
   ],
 };
