@@ -52,7 +52,9 @@ function CartScreen({ match, location, history }) {
                     <select
                       value={item.qty}
                       onChange={(e) => {
-                        dispatch(addToCart(item.product, e.target.value));
+                        dispatch(
+                          addToCart(item.product, parseInt(e.target.value, 10))
+                        );
                       }}
                     >
                       {[...Array(item.countInStock).keys()].map((x) => (
@@ -86,7 +88,7 @@ function CartScreen({ match, location, history }) {
         <button
           type='button'
           onClick={checkoutHandler}
-          className='button primary'
+          className='button primary full-width'
           disabled={cartItems.length === 0}
         >
           Proceed to Checkout
