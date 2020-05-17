@@ -9,7 +9,7 @@ const data = {
       brand: 'Nike',
       rating: 4.5,
       numReviews: 10,
-      countInStock: 1
+      countInStock: 0
     },
     {
       id: '2',
