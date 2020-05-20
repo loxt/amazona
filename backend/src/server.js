@@ -16,6 +16,7 @@ mongoose.connect(mongoUrl, {
 
 const app = express();
 
+app.use(express.json());
 app.use('/api/users', userRoute);
 
 app.get('/api/products/:id', (req, res) => {
