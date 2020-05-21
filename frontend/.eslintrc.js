@@ -25,6 +25,7 @@ module.exports = {
     'react/jsx-one-expression-per-line': 'off',
     'consistent-return': 'off',
     'import/prefer-default-export': 'off',
-    'jsx-a11y/label-has-associated-control': 'off'
+    'jsx-a11y/label-has-associated-control': 'off',
+    'no-underscore-dangle': 'off',
   },
 };

@@ -2,8 +2,10 @@ import { createStore, combineReducers, compose, applyMiddleware } from 'redux';
 import thunk from 'redux-thunk';
 import Cookie from 'js-cookie';
 import {
+  productDeleteReducer,
   productDetailsReducer,
   productListReducer,
+  productSaveReducer,
 } from './reducers/productReducers';
 import { cartReducer } from './reducers/cartReducers';
 import {
@@ -22,6 +24,8 @@ const reducer = combineReducers({
   cart: cartReducer,
   userSignin: userSigninReducer,
   userRegister: userRegisterReducer,
+  productSave: productSaveReducer,
+  productDelete: productDeleteReducer,
 });
 
 const store = createStore(

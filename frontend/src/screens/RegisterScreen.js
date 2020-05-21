@@ -33,7 +33,7 @@ function RegisterScreen({ history }) {
           <li>
             <h2>Sign-In</h2>
           </li>
-          <li>{loading || (error && <div>Loading...</div>)}</li>
+          <li>{loading && <div>Loading...</div>}</li>
           <li>{error && <div>{error}</div>}</li>
           <li>
             <label htmlFor='name'>Name</label>
