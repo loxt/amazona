@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import PropTypes from 'prop-types';
 import { signIn } from '../actions/userActions';
 
-function SigninScreen({ history }) {
+function SigninScreen({ history, location }) {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
@@ -13,11 +13,13 @@ function SigninScreen({ history }) {
 
   const dispatch = useDispatch();
 
+  const redirect = location.search ? location.search.split('=')[1] : '/';
+
   useEffect(() => {
     if (userInfo) {
-      history.push('/');
+      history.push(redirect);
     }
-  }, [userInfo, history]);
+  }, [userInfo, history, redirect]);
 
   const submitHandler = (e) => {
     e.preventDefault();
@@ -58,7 +60,12 @@ function SigninScreen({ history }) {
           </li>
           <li>New to amazona?</li>
           <li>
-            <Link to='/register' className='button secondary text-center'>
+            <Link
+              to={
+                redirect === '/' ? 'register' : `register?redirect=${redirect}`
+              }
+              className='button secondary text-center'
+            >
               Create your amazona account
             </Link>
           </li>
@@ -71,6 +78,9 @@ function SigninScreen({ history }) {
 SigninScreen.propTypes = {
   history: PropTypes.shape({
     push: PropTypes.func,
+  }).isRequired,
+  location: PropTypes.shape({
+    search: PropTypes.func,
   }).isRequired,
 };
 
