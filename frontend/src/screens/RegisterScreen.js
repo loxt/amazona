@@ -4,20 +4,22 @@ import { useDispatch, useSelector } from 'react-redux';
 import PropTypes from 'prop-types';
 import { register } from '../actions/userActions';
 
-function RegisterScreen({ history }) {
+function RegisterScreen({ history, location }) {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [rePassword, setRePassword] = useState('');
+  const [, setRePassword] = useState('');
 
   const userRegister = useSelector((state) => state.userRegister);
   const { loading, userInfo, error } = userRegister;
 
   const dispatch = useDispatch();
 
+  const redirect = location.search ? location.search.split('=')[1] : '/';
+
   useEffect(() => {
     if (userInfo) {
-      history.push('/');
+      history.push(redirect);
     }
   }, [userInfo, history]);
 
@@ -31,7 +33,7 @@ function RegisterScreen({ history }) {
       <form onSubmit={submitHandler}>
         <ul className='form-container'>
           <li>
-            <h2>Sign-In</h2>
+            <h2>Register</h2>
           </li>
           <li>{loading && <div>Loading...</div>}</li>
           <li>{error && <div>{error}</div>}</li>
@@ -77,7 +79,12 @@ function RegisterScreen({ history }) {
             </button>
           </li>
           <li>
-            Already have an account? <Link to='/signin'>SignIn</Link>
+            Already have an account?
+            <Link
+              to={redirect === '/' ? 'signin' : `signin?redirect=${redirect}`}
+            >
+              SignIn
+            </Link>
           </li>
           <li>
             <Link to='/' className='button secondary text-center'>
@@ -93,6 +100,9 @@ function RegisterScreen({ history }) {
 RegisterScreen.propTypes = {
   history: PropTypes.shape({
     push: PropTypes.func,
+  }).isRequired,
+  location: PropTypes.shape({
+    search: PropTypes.func,
   }).isRequired,
 };
 
